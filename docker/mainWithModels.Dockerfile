@@ -20,3 +20,5 @@ ADD https://github.com/xinntao/facexlib/releases/download/v0.2.2/parsing_parsene
 ADD https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth /usr/local/lib/python3.10/dist-packages/gfpgan/weights/GFPGANv1.3.pth
 
 VOLUME ["/app/inputs", "/app/experiments", "/app/results"]
+
+LABEL org.opencontainers.image.description='Main Real-ESRGAN Image with Models and CUDA support'

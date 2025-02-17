@@ -34,5 +34,7 @@ RUN pip cache purge && apt-get clean autoclean && apt-get autoremove --yes && rm
 RUN python setup.py develop
 RUN sed -i '1i import warnings\nwarnings.filterwarnings("ignore", category=UserWarning)' inference_realesrgan.py
 
+LABEL org.opencontainers.image.description='Base Real-ESRGAN Image with CUDA support'
+
 ENTRYPOINT ["python", "inference_realesrgan.py"]
 CMD ["-h"]
