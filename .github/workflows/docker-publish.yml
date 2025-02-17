@@ -87,7 +87,7 @@ jobs:
           context: .
           file: docker/base.Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/ralphv/realesrgan-base:${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/ralphv/realesrgan-base:${{ steps.meta.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -118,7 +118,7 @@ jobs:
           build-args:
             BASE_IMAGE_NAME=ghcr.io/ralphv/realesrgan-base
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/ralphv/realesrgan:${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/ralphv/realesrgan:${{ steps.meta.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -149,7 +149,7 @@ jobs:
           build-args:
             BASE_IMAGE_NAME=ghcr.io/ralphv/realesrgan-base
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/ralphv/realesrgan-base:${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/ralphv/realesrgan-base:${{ steps.meta.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
