@@ -3,10 +3,16 @@
 
 This uses the following repo: [https://github.com/xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
 
-## Image references:
+## GitHub Image references:
 
+```docker
+docker pull ghcr.io/ralphv/realesrgan:latest
+```
+```docker
+docker pull ghcr.io/ralphv/realesrgan-with-models:latest
+```
 
-## How to use
+## How to build
 
 ```shell
 make build
