@@ -37,3 +37,10 @@ You can create `.env` file and define a custom image name using the variable `IM
 ```dotenv
 IMAGE_NAME: <custom>/realesrgan
 ```
+
+### Useful command line arguments
+* `--face_enhance`: Enhances faces but sometimes can create weird faces.
+* `--fp32`: Use fp32 precision during inference. Default: fp16 (half precision).
+* `-s 2`: The scaling factor, can be put to 1 to just enhance images.
+
+You can find more info at the [main repo of the library here.](https://github.com/xinntao/Real-ESRGAN)
