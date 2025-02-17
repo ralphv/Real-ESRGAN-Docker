@@ -1,4 +1,4 @@
-ARG BASE_IMAGE_NAME
+ARG BASE_IMAGE_NAME=missing-build-argument
 FROM ${BASE_IMAGE_NAME}
 
 ADD https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-animevideov3.pth /app/weights/
