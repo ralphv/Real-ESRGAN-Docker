@@ -106,6 +106,7 @@ jobs:
         with:
           context: .
           file: docker/main.Dockerfile
+          build-args: BASE_IMAGE_NAME='ralphv/realesrgan-base'
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -135,6 +136,7 @@ jobs:
         with:
           context: .
           file: docker/mainWithModels.Dockerfile
+          build-args: BASE_IMAGE_NAME='ralphv/realesrgan-base'
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
