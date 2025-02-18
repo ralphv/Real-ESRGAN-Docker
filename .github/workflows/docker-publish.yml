@@ -23,7 +23,7 @@ env:
 
 
 jobs:
-  build:
+  build-github-publish:
 
     runs-on: ubuntu-latest
     permissions:
@@ -34,6 +34,9 @@ jobs:
       id-token: write
 
     steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
