@@ -4,12 +4,20 @@
 This uses the following repo: [https://github.com/xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
 
 ## GitHub Image references:
+Images pushed to dockerhub as well as GitHub
 
 ```docker
-docker pull ghcr.io/ralphv/realesrgan:latest
+docker pull ralphv/realesrgan
 ```
 ```docker
-docker pull ghcr.io/ralphv/realesrgan-with-models:latest
+docker pull ralphv/realesrgan-with-models
+```
+OR
+```docker
+docker pull ghcr.io/ralphv/realesrgan
+```
+```docker
+docker pull ghcr.io/ralphv/realesrgan-with-models
 ```
 
 ## How to build
@@ -29,15 +37,15 @@ __WARNING__: The produced images are very large, close to `10 GB`
 
 * Run to get the help information:
     ```shell
-    docker run --rm ghcr.io/ralphv/realesrgan
+    docker run --rm ralphv/realesrgan
     ```
 * Run on a sample input file `test.jpg` to produce the output as `test_out.jpg` in same folder
     ```shell
-    docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models -o /data/ -i /data/test.jpg
+    docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models -o /data/ -i /data/test.jpg
     ```
 * Run on all files in current directory
     ```shell
-    docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models -o /data/ -i /data/
+    docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models -o /data/ -i /data/
     ```
 
 ### Modify image names:
@@ -57,14 +65,14 @@ You can find more info at the [main repo of the library here.](https://github.co
 ### Useful aliases
 
 ```shell
-alias enhance='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --fp32 -i /data/ -o /data/ -s 1'
+alias enhance='docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models --fp32 -i /data/ -o /data/ -s 1'
 ```
 ```shell
-alias enlarge='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --fp32 -i /data/ -o /data/ -s 2'
+alias enlarge='docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models --fp32 -i /data/ -o /data/ -s 2'
 ```
 ```shell
-alias enhancef='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --face_enhance --fp32 -i /data/ -o /data/ -s 1'
+alias enhancef='docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models --face_enhance --fp32 -i /data/ -o /data/ -s 1'
 ```
 ```shell
-alias enlargef='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --face_enhance --fp32 -i /data/ -o /data/ -s 2'
+alias enlargef='docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models --face_enhance --fp32 -i /data/ -o /data/ -s 2'
 ```
