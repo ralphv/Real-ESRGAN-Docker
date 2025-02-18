@@ -29,15 +29,15 @@ __WARNING__: The produced images are very large, close to `10 GB`
 
 * Run to get the help information:
     ```shell
-    docker run --rm ralphv/realesrgan
+    docker run --rm ghcr.io/ralphv/realesrgan
     ```
 * Run on a sample input file `test.jpg` to produce the output as `test_out.jpg` in same folder
     ```shell
-    docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models -o /data/ -i /data/test.jpg
+    docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models -o /data/ -i /data/test.jpg
     ```
 * Run on all files in current directory
     ```shell
-    docker run --rm --gpus all -v .:/data ralphv/realesrgan-with-models -o /data/ -i /data/
+    docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models -o /data/ -i /data/
     ```
 
 ### Modify image names:
