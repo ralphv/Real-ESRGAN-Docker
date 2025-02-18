@@ -15,8 +15,7 @@ RUN rm -rf /app/.git /app/tests /app/inputs /app/docs /app/assets /app/.vscode /
 WORKDIR /app
 
 # Install needed python libraries
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir \
+RUN pip install --no-cache-dir \
     basicsr==1.4.2 \
     facexlib==0.2.5 \
     gfpgan==1.3.5 \
