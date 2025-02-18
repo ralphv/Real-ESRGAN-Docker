@@ -53,3 +53,18 @@ IMAGE_NAME: <custom>/realesrgan
 * `-s 2`: The scaling factor, can be put to 1 to just enhance images.
 
 You can find more info at the [main repo of the library here.](https://github.com/xinntao/Real-ESRGAN)
+
+### Useful aliases
+
+```shell
+alias enhance='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --fp32 -i /data/ -o /data/ -s 1'
+```
+```shell
+alias enlarge='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --fp32 -i /data/ -o /data/ -s 2'
+```
+```shell
+alias enhancef='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --face_enhance --fp32 -i /data/ -o /data/ -s 1'
+```
+```shell
+alias enlargef='docker run --rm --gpus all -v .:/data ghcr.io/ralphv/realesrgan-with-models --face_enhance --fp32 -i /data/ -o /data/ -s 2'
+```
