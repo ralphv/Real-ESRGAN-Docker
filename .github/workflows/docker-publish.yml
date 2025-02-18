@@ -123,7 +123,7 @@ jobs:
         with:
           context: .
           file: docker/base.Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
+          push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-base.outputs.tags }}
           labels: ${{ steps.meta-base.outputs.labels }}
@@ -155,7 +155,7 @@ jobs:
           file: docker/main.Dockerfile
           build-args:
             BASE_IMAGE_NAME=${{ fromJSON(steps.meta-base.outputs.json).tags[0] }}
-          push: ${{ github.event_name != 'pull_request' }}
+          push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-main.outputs.tags }}
           labels: ${{ steps.meta-main.outputs.labels }}
@@ -187,7 +187,7 @@ jobs:
           file: docker/mainWithModels.Dockerfile
           build-args:
             BASE_IMAGE_NAME=${{ fromJSON(steps.meta-base.outputs.json).tags[0] }}
-          push: ${{ github.event_name != 'pull_request' }}
+          push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-with-models.outputs.tags }}
           labels: ${{ steps.meta-with-models.outputs.labels }}
