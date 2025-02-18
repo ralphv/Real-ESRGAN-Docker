@@ -16,4 +16,3 @@ run:
     		-v $(PWD)/output:/output \
     		$(IMAGE_NAME)-with-models \
     		-i /input/$(INPUT) -o /output --fp32 --face_enhance -s 2
-
