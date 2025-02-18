@@ -67,6 +67,7 @@ jobs:
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
+        if: ${{ github.event_name != 'pull_request' }}
         id: meta-main
         uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
         with:
@@ -102,6 +103,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta-with-models
+        if: ${{ github.event_name != 'pull_request' }}
         uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-with-models
@@ -123,7 +125,7 @@ jobs:
         with:
           context: .
           file: docker/base.Dockerfile
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-base.outputs.tags }}
           labels: ${{ steps.meta-base.outputs.labels }}
@@ -149,13 +151,14 @@ jobs:
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image (main)
         id: build-and-push-main
+        if: ${{ github.event_name != 'pull_request' }}
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
           context: .
           file: docker/main.Dockerfile
           build-args:
             BASE_IMAGE_NAME=${{ fromJSON(steps.meta-base.outputs.json).tags[0] }}
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-main.outputs.tags }}
           labels: ${{ steps.meta-main.outputs.labels }}
@@ -181,13 +184,14 @@ jobs:
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image (main with models)
         id: build-and-push-main-with-models
+        if: ${{ github.event_name != 'pull_request' }}
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
           context: .
           file: docker/mainWithModels.Dockerfile
           build-args:
             BASE_IMAGE_NAME=${{ fromJSON(steps.meta-base.outputs.json).tags[0] }}
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-with-models.outputs.tags }}
           labels: ${{ steps.meta-with-models.outputs.labels }}
