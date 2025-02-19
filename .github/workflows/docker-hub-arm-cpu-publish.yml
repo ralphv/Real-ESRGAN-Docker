@@ -114,7 +114,7 @@ jobs:
           context: .
           file: docker/main.Dockerfile
           build-args:
-            BASE_IMAGE_NAME=${{ steps.meta-base.outputs.tags[0] }}
+            BASE_IMAGE_NAME=${{ fromJSON(steps.meta-base.outputs.json).tags[0] }}
           push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-main.outputs.tags }}
@@ -136,7 +136,7 @@ jobs:
           context: .
           file: docker/mainWithModels.Dockerfile
           build-args:
-            BASE_IMAGE_NAME=${{ steps.meta-base.outputs.tags[0] }}
+            BASE_IMAGE_NAME=${{ fromJSON(steps.meta-base.outputs.json).tags[0] }}
           push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-with-models.outputs.tags }}
